@@ -5,6 +5,10 @@ import ssl
 
 
 def get_data(json, type):
+    """
+    (str, str) -> dict
+    Return a dictionary containing account names as keys and data of given type.
+    """
     data = {}
     for user in json["users"]:
         data[user["name"]] = user[type]
@@ -12,6 +16,10 @@ def get_data(json, type):
 
 
 def get_json(name):
+    """
+    (str) -> dict
+    Return json containing data of given twitter account.
+    """
     TWITTER_URL = 'https://api.twitter.com/1.1/friends/list.json'
     ctx = ssl.create_default_context()
     ctx.check_hostname = False

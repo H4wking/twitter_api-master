@@ -5,6 +5,10 @@ from geopy.extra.rate_limiter import RateLimiter
 
 
 def get_coordinates(locations):
+    """
+    (dict) -> lst
+    Return list containing names and coordinates of twitter accounts.
+    """
     coordinates = []
     geolocator = Nominatim(user_agent='name', timeout=None, scheme='http')
     geocode = RateLimiter(geolocator.geocode, min_delay_seconds=0.1)
@@ -30,10 +34,14 @@ def fg_locations(name):
 
 
 def create_map(name):
+    """
+    (str) ->
+    Create a web map with friends' locations.
+    """
     map = folium.Map()
     fg_lc = fg_locations(name)
     map.add_child(fg_lc)
-    map.save('/Users/danylonazaruk/PycharmProjects/twitter_api-master/templates/map.html')
+    map.save('/home/Nazaruk/mysite/templates/map.html')
 
 
 if __name__ == "__main__":
