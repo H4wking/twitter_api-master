@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Twitter user friends map</title>
+
+</head>
+<body>
+<form action="application" method="post">
+    <h3>Twitter username: </h3>
+    <input type="text" id="username" name="name"><br>
+    <br><input class="btn-primary" type="submit" value="Create map">
+    {% block error %}
+    {% endblock %}
+</form>
+</body>
+</html>
