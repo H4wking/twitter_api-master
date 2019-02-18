@@ -21,7 +21,7 @@ def map():
     Render web map based on given account.
     """
     user = str(request.form.get("name"))
-    if len(user.split()) > 1:
+    if len(user.split()) > 1 or len(user) < 1:
         return render_template("error.html")
     else:
         create_map(user)
